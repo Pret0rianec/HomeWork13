@@ -22,13 +22,19 @@ public class Order {
             return false;
         }
         Order order = (Order) o;
-        if (order.basket == null) {
+        if (basket == null && order.basket == null) {
+            return false;
+        }
+        if ((order.basket == null && basket != null) || (basket == null && order.basket != null)) {
             return false;
         }
         if (order.basket.length != this.basket.length) {
             return false;
         }
         for (int i = 0; i < order.basket.length; i++) {
+            if (basket[i] == null && order.basket[i] == null) {
+                continue;
+            }
             if (order.basket[i].equals(this.basket[i])) {
                 return false;
             }
