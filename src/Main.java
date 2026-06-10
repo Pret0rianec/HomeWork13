@@ -3,7 +3,8 @@
 public static void main(String[] args) {
     Product product1 = new Product(1234, "SW UltraMega", 999, "Smart watch");
     Product product2 = new Product(1324, "myPhone Super13", 1999, "Smart phone");
-    Product product3 = new Product(1132, "Ring mini", 499, "Smart ring");
+    Product product3 = new Product(0,"",0,"");
+//    Product product3 = new Product(1132, "Ring mini", 499, "Smart ring");
     System.out.println("Product list:");
     System.out.println(product1);
     System.out.println(product2);
@@ -14,8 +15,9 @@ public static void main(String[] args) {
     System.out.println("product3 vs product1: " + product3.equals(product1));
     Product[] basket1 = {product1, product2};
     Product[] basket2 = {product2, product3};
-    Order order1 = new Order("Strive Green", basket1);
-    Order order2= new Order("Joan Coll", basket2);
+    Order order1 = new Order("", basket1);
+    Order order2 = new Order("Strive Green", basket1);
+//    Order order2 = new Order("Joan Coll", basket2);
     System.out.println("Order list:");
     System.out.println(order1);
     System.out.println(order2);

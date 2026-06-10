@@ -22,20 +22,24 @@ public class Order {
             return false;
         }
         Order order = (Order) o;
-        if (basket == null && order.basket == null) {
-            return false;
+        if ((basket == null && order.basket == null) || (customer == null && order.customer == null)) {
+            return true;
         }
         if ((order.basket == null && basket != null) || (basket == null && order.basket != null)) {
             return false;
         }
-        if (order.basket.length != this.basket.length) {
+        if (order.basket.length != basket.length) {
             return false;
         }
-        for (int i = 0; i < order.basket.length; i++) {
-            if (basket[i] == null && order.basket[i] == null) {
+
+        for (int i = 0; i < basket.length; i++) {
+            if ((basket[i] == null && order.basket[i] == null) || (basket[i] != null && order.basket[i] != null)) {
                 continue;
             }
-            if (order.basket[i].equals(this.basket[i])) {
+            if ((basket[i] != null && order.basket[i] == null) || (basket[i] == null && order.basket[i] != null)) {
+                return false;
+            }
+            if (!basket[i].equals(order.basket[i])) {
                 return false;
             }
         }
