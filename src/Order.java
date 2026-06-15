@@ -16,21 +16,32 @@ public class Order {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        if (!Objects.equals(customer, order.customer)) return false;
-
-        if (basket == null && order.basket == null) return true;
-        if (basket == null || order.basket == null) return false;
-        if (basket.length != order.basket.length) return false;
-
-        for (int i = 0; i < basket.length; i++) {
-            if (basket[i] == null && order.basket[i] == null) continue;
-            if (basket[i] == null || order.basket[i] == null) return false;
-            if (!basket[i].equals(order.basket[i])) return false;
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        return true;
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Order order = (Order) obj;
+        return Objects.equals(customer, order.customer) && Arrays.equals(this.basket, order.basket);
     }
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Order order = (Order) o;
+//        if (!Objects.equals(customer, order.customer)) return false;
+//
+//        if (basket == null && order.basket == null) return true;
+//        if (basket == null || order.basket == null) return false;
+//        if (basket.length != order.basket.length) return false;
+//
+//        for (int i = 0; i < basket.length; i++) {
+//            if (basket[i] == null && order.basket[i] == null) continue;
+//            if (basket[i] == null || order.basket[i] == null) return false;
+//            if (!basket[i].equals(order.basket[i])) return false;
+//        }
+//        return true;
+//    }
 }
